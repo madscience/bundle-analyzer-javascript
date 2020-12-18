@@ -33,7 +33,7 @@ jobs:
         run: yarn
       - name: Archive node_modules
         if: steps.cache_yarn.outputs.cache-hit != 'true'
-        run: tar --use-compress-program "zstd -T0 --long=31 -1" -cf node_modules.tar.zstd -P node_modules
+        run: tar --use-compress-program "zstd -T0 --long=31 -1" -cf node_modules.tar.zstd -P node_modules packages/*/node_modules
       - name: Persisting node_modules artifact
         uses: actions/upload-artifact@v2
         with:
