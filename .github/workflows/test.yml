@@ -17,22 +17,22 @@ jobs:
           node-version: '12.x'
           always-auth: true
           registry-url: https://registry.npmjs.org
-      - id: cache_npm
+      - id: cache_yarn
         name: Cache Node.js modules
         uses: actions/cache@v2
         with:
           path: |
-            ~/.npm
+            ./.yarn
             ./node_modules.tar.zstd
-          key: ${{ runner.OS }}-npm-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.OS }}-npm-
+            ${{ runner.OS }}-yarn-
             ${{ runner.OS }}-
-      - name: Install dependencies with NPM
-        if: steps.cache_npm.outputs.cache-hit != 'true'
-        run: npm ci
+      - name: Install dependencies with Yarn
+        if: steps.cache_yarn.outputs.cache-hit != 'true'
+        run: yarn
       - name: Archive node_modules
-        if: steps.cache_npm.outputs.cache-hit != 'true'
+        if: steps.cache_yarn.outputs.cache-hit != 'true'
         run: tar --use-compress-program "zstd -T0 --long=31 -1" -cf node_modules.tar.zstd -P node_modules
       - name: Persisting node_modules artifact
         uses: actions/upload-artifact@v2
