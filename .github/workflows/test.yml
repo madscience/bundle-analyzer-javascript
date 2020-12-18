@@ -24,10 +24,10 @@ jobs:
           path: |
             ./.yarn
             ./node_modules.tar.zstd
-          key: ${{ runner.OS }}-yarn-v1-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.OS }}-v1-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.OS }}-yarn-v1-
-            ${{ runner.OS }}-
+            ${{ runner.OS }}-v1-yarn-
+            ${{ runner.OS }}-v1-
       - name: Install dependencies with Yarn
         if: steps.cache_yarn.outputs.cache-hit != 'true'
         run: yarn
