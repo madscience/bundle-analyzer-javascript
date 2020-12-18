@@ -25,7 +25,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            ./.yarn
+            ~/.yarn
             ./node_modules.tar.zstd
           key: ${{ runner.OS }}-v1-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
