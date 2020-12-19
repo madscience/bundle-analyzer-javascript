@@ -36,7 +36,7 @@ jobs:
         run: yarn
       - name: Unarchive node_modules
         if: steps.cache_yarn.outputs.cache-hit == 'true'
-        run: tar --use-compress-program "zstd -d --long=31" -xf node_modules.tar.zstd
+        run: tar --use-compress-program "zstd -d --long=31" -xvf node_modules.tar.zstd
       # Build
       - name: Build application
         run: yarn build

@@ -33,7 +33,7 @@ jobs:
         run: yarn
       - name: Archive node_modules
         if: steps.cache_yarn.outputs.cache-hit != 'true'
-        run: tar --use-compress-program "zstd -T0 --long=31 -1" -cf node_modules.tar.zstd -P node_modules packages/*/node_modules
+        run: tar --use-compress-program "zstd -T0 --long=31 -1" -cvf node_modules.tar.zstd -P node_modules packages/*/node_modules
       - name: Persisting node_modules artifact
         uses: actions/upload-artifact@v2
         with:
@@ -61,7 +61,7 @@ jobs:
         with:
           name: node_modules.tar.zstd
       - name: Unarchive node_modules
-        run: tar --use-compress-program "zstd -d --long=31" -xf node_modules.tar.zstd
+        run: tar --use-compress-program "zstd -d --long=31" -xvf node_modules.tar.zstd
       # ESLint
       - name: Lint source code
         run: yarn lint
@@ -87,7 +87,7 @@ jobs:
         with:
           name: node_modules.tar.zstd
       - name: Unarchive node_modules
-        run: tar --use-compress-program "zstd -d --long=31" -xf node_modules.tar.zstd
+        run: tar --use-compress-program "zstd -d --long=31" -xvf node_modules.tar.zstd
       # Build
       - name: Build application
         run: yarn build
@@ -123,7 +123,7 @@ jobs:
         with:
           name: node_modules.tar.zstd
       - name: Unarchive node_modules
-        run: tar --use-compress-program "zstd -d --long=31" -xf node_modules.tar.zstd
+        run: tar --use-compress-program "zstd -d --long=31" -xvf node_modules.tar.zstd
       # Tests
       - name: Run project tests
         run: yarn test
