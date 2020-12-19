@@ -1,7 +1,7 @@
 {
   "name": "@madsci/bundle-analyzer-core",
   "description": "Bundle Analyzer Node.js uploader.",
-  "version": "0.5.1",
+  "version": "0.5.2-buildfix.0",
   "main": "lib/index.js",
   "repository": "https://github.com/madscience/bundle-analyzer-javascript/tree/master/packages/core",
   "author": "Greg Bergé <berge.greg@gmail.com>",

@@ -1,7 +1,7 @@
 {
   "name": "@madsci/bundle-analyzer-gatsby-plugin",
   "description": "Bundle Analyzer Gatsby plugin.",
-  "version": "0.5.1",
+  "version": "0.5.2-buildfix.0",
   "main": "index.js",
   "repository": "https://github.com/madscience/bundle-analyzer-javascript/tree/master/packages/gatsby-plugin",
   "author": "Greg Bergé <berge.greg@gmail.com>",
@@ -24,6 +24,6 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@madsci/bundle-analyzer-webpack-plugin": "^0.5.1"
+    "@madsci/bundle-analyzer-webpack-plugin": "^0.5.2-buildfix.0"
   }
 }
