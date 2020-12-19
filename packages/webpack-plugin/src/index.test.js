@@ -2,10 +2,10 @@
 import path from 'path'
 import webpack from 'webpack'
 import MemoryFs from 'memory-fs'
-import { uploadStats } from '@bundle-analyzer/core'
+import { uploadStats } from '@madsci/bundle-analyzer-core'
 import BundleAnalyzerPlugin from '.'
 
-jest.mock('@bundle-analyzer/core')
+jest.mock('@madsci/bundle-analyzer-core')
 
 const memoryFs = new MemoryFs()
 

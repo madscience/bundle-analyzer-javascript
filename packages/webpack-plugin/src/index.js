@@ -1,4 +1,4 @@
-import { uploadStats } from '@bundle-analyzer/core'
+import { uploadStats } from '@madsci/bundle-analyzer-core'
 
 class BundleAnalyzer {
   constructor({ token, configFile } = {}) {
@@ -14,7 +14,7 @@ class BundleAnalyzer {
     const { token, configFile } = this
 
     compiler.hooks.afterEmit.tapAsync(
-      '@bundle-analyzer/webpack-plugin',
+      '@madsci/bundle-analyzer-webpack-plugin',
       (hookCompiler, callback) => {
         const stats = hookCompiler.getStats().toJson({
           maxModules: Infinity,

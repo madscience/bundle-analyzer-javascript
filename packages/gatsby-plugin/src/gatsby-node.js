@@ -1,4 +1,4 @@
-import BundleAnalyzerPlugin from '@bundle-analyzer/webpack-plugin'
+import BundleAnalyzerPlugin from '@madsci/bundle-analyzer-webpack-plugin'
 
 exports.onCreateWebpackConfig = ({ actions }, options) => {
   actions.setWebpackConfig({

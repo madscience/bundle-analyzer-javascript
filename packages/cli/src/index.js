@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import program from 'commander'
-import { uploadStats } from '@bundle-analyzer/core'
+import { uploadStats } from '@madsci/bundle-analyzer-core'
 import pkg from '../package.json'
 
 program
