@@ -24,7 +24,7 @@ jobs:
           path: |
             ~/.yarn
             ./node_modules.tar.zstd
-          key: ${{ runner.OS }}-v1-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.OS }}-v1-yarn-${{ hashFiles('**/yarn.lock', '**/package.json') }}
           restore-keys: |
             ${{ runner.OS }}-v1-yarn-
             ${{ runner.OS }}-v1-
