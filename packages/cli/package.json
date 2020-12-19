@@ -1,7 +1,7 @@
 {
   "name": "@madsci/bundle-analyzer-cli",
   "description": "Bundle Analyzer CLI.",
-  "version": "0.5.2-buildfix.0",
+  "version": "0.5.2-buildfix.1",
   "main": "lib/index.js",
   "repository": "https://github.com/madscience/bundle-analyzer-javascript/tree/master/packages/cli",
   "author": "Greg Bergé <berge.greg@gmail.com>",
@@ -25,7 +25,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@madsci/bundle-analyzer-core": "^0.5.2-buildfix.0",
+    "@madsci/bundle-analyzer-core": "^0.5.2-buildfix.1",
     "commander": "^3.0.1"
   },
   "devDependencies": {
