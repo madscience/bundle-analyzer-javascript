@@ -75,6 +75,13 @@ jobs:
           else
             echo "Build appears to be successful: ./packages/core/lib/index.js was created"
           fi
+      - name: Archive build files
+        run: tar --use-compress-program "zstd -T0 --long=31 -1" -cvf build.tar.zstd -P packages/*/lib
+      - name: Persisting build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build.tar.zstd
+          path: build.tar.zstd
 
   #
   # lint job
@@ -98,6 +105,12 @@ jobs:
           name: node_modules.tar.zstd
       - name: Unarchive node_modules
         run: tar --use-compress-program "zstd -d --long=31" -xvf node_modules.tar.zstd
+      - name: Restore build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build.tar.zstd
+      - name: Unarchive build files
+        run: tar --use-compress-program "zstd -d --long=31" -xvf build.tar.zstd
       # ESLint
       - name: Lint source code
         run: yarn lint
@@ -124,6 +137,12 @@ jobs:
           name: node_modules.tar.zstd
       - name: Unarchive node_modules
         run: tar --use-compress-program "zstd -d --long=31" -xvf node_modules.tar.zstd
+      - name: Restore build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build.tar.zstd
+      - name: Unarchive build files
+        run: tar --use-compress-program "zstd -d --long=31" -xvf build.tar.zstd
       # Tests
       - name: Run project tests
         run: yarn test
